@@ -13,7 +13,7 @@ namespace Infrastructure
         private readonly MessageSerializer messageSerializer = new MessageSerializer();
 
 
-        ConnectionFactory connectionFactory = new ConnectionFactory() { HostName = System.Configuration.ConfigurationManager.AppSettings["RabbitMq-host"] };
+        ConnectionFactory connectionFactory = new ConnectionFactory() { HostName = System.Configuration.ConfigurationManager.AppSettings["rabbitmq-node"] };
 
         public Topic(string exchange, string topic)
         {

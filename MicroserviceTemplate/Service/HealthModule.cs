@@ -16,8 +16,10 @@ namespace Service
             Get["/health/{ping}"] = x =>
                 {
                     healthTopic.Publish((string)x.ping);
-                    topic2.Publish<HealthMessage>(new HealthMessage{WhoIsCalling = x.ping});
-                    return "OK "+ x.ping;
+                    var model = new HealthMessage {WhoIsCalling = x.ping};
+
+                    topic2.Publish<HealthMessage>(model);
+                    return View["health",model];
                 };
         }
     }
